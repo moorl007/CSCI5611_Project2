@@ -39,15 +39,13 @@
     </li>
     <li>Air drag for cloth
         <ul>
-            <li>Multiple agents can be added by the user and each will have their own path to the goal</li>
+            <li>Air drag is calculated for the triangles formed by cloth nodes.  I find the force vector on this triangle, divide it by 3, and add that force to each node.</li>
         </ul>
     </li>
     <li>Ripping Tearing
         <ul>
-            <li>I chose to use boids as my crowd simulation</li>
-            <li>The agents will not collide with one another</li>
-            <li>If the agents have no path to the goal, they will continue to move in a boid like fashion</li>
-            <li>Once all of the agents have arrived at the goal, they don't like to get too close to each other so will go to the outside of the crowd sourounding the goal.</li>
+            <li>If the distnace between two nodes in the cloth are far enough apart, the spring between those two nodes stops exisiting and I no longer calculate the forces from that spring on that node</li>
+            <li>If a node has had a spring destroyed because it is too far away from another node, I no longer render any triangles which were formed by that node.</li>
         </ul>
     </li>
 </ul>
@@ -75,7 +73,7 @@
 
 <h2>Video</h2>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/yV8Q9QiJNCw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<h3>VIDEO 1: Basic demo of cloth flowing in the wind with cannon balls flying at it and making rips</h3>
+<h3>VIDEO 1: Basic demo of cloth flowing in the wind with cannon balls flying at it and making rip</h3>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/SSTph4JjV1o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <h3>VIDEO 2: Cool video of part of the top half of the flag ripping, causing the rest to length of the flag to expand.</h3>
