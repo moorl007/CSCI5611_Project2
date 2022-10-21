@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>CSCI 5611 Project 1</h1>
+<h1>Ben Moorlach</h1>
+
+
+<h2>Images</h2>
+<figure>
+    <img src="flag.png" alt="A Minnesota Gopher flag blowing in the wind" width = 500 height = 500>
+    <figcaption>A Minnesota Gopher Cloth flapping in the wind</figcaption>
+</figure>
+
+<figure>
+    <img src="ripped.png" alt="A piece of cloth flying away in the wind after getting ripped off by a cannon ball :(" width = 500 height = 500>
+    <figcaption>A piece of cloth flying away in the wind after getting ripped off by a cannon ball :(.  I like this image and would like to submit it to the ART CONTEST</figcaption>
+</figure>
+
+
+
+
+<h2>List of features attempted and description</h2>
+<ul>
+    <li>Multiple Ropes
+        <ul>
+            <li>An agent uses the A* algorithm on a graph created by placing a user-decided number of nodes to navigate to the goal.  I smoothed the look of the agents by navigating to the node that is furthest along the agent's path that is visible</li>
+        </ul>
+    </li>
+    <li>Cloth Simulation
+        <ul>
+            <li>The user starts each simulation by clicking the mouse to place an obstacle.</li>
+            <li>The user can make the latest obsticle added larger or smaller by pressing the right or left arrow key</li>
+            <li>Once the user is done adding obsticles, they press the space bar, and can click the mouse anywhere to add agents. If they click on an obsticle the agent will not be added</li>
+            <li>Once the user is done adding agents, they press the space bar, and can click anywhere to set the goal position for all agents</li>
+            <li>The user then presses the space bar again to run the simulation and can press r at anytime to restart</li>
+        </ul>
+    </li>
+    <li>3D Simulation
+        <ul>
+            <li>At any time during the simulation, the user can click the mouse and change the goal position.  The agents will recalculate the path and navigate to the new goal.</li>
+        </ul>
+    </li>
+    <li>Air drag for cloth
+        <ul>
+            <li>Multiple agents can be added by the user and each will have their own path to the goal</li>
+        </ul>
+    </li>
+    <li>Ripping Tearing
+        <ul>
+            <li>I chose to use boids as my crowd simulation</li>
+            <li>The agents will not collide with one another</li>
+            <li>If the agents have no path to the goal, they will continue to move in a boid like fashion</li>
+            <li>Once all of the agents have arrived at the goal, they don't like to get too close to each other so will go to the outside of the crowd sourounding the goal.</li>
+        </ul>
+    </li>
+</ul>
+
+
+<h2>Code</h2>
+<p>I modified the original Proj1_Test.pde code to run my simulations, modified PRM.pde to run my path finding, and used Vec2.pde and CollisionLibrary.pde to assist with vector math and collision detection, respectively.</p>
+<a href="https://docs.google.com/document/d/1-T3_QHjcd-vrTCILLeDnI54gNtEIjI_CQZjrjP778r0/edit?usp=sharing">Simulation Code</a><br>
+<a href="https://docs.google.com/document/d/1u6X72_5875AAzFQhQdiJipDs6fVE9rt7C1UP63g4BAI/edit?usp=sharing">Cloth Class</a><br>
+<a href="https://docs.google.com/document/d/13FU8YYHsLqSJhsyhIHSn7EIan5ZhY-9FHRCuskeBP14/edit?usp=sharing">Cloth Node Class</a><br>
+
+<h2>Tools and Libraries</h2>
+<p>I did not use many external tools and libraries outside of Processing to display the behavior of my simulations.</p>
+<h2>Difficulties</h2>
+
+
+<h2>Video</h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/yV8Q9QiJNCw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<h3>VIDEO 1: Basic demo of cloth flowing in the wind with cannon balls flying at it and making rips</h3>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/SSTph4JjV1o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<h3>VIDEO 2: Cool video of part of the top half of the flag ripping, causing the rest to length of the flag to expand.</h3>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/cnM36924CRY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<h3>VIDEO 3: Video of the flag totally tearing in half and the half that isn't connected to the flag pole flies away.</h3>
+
+
+</body>
+</html>
