@@ -23,21 +23,18 @@
 <ul>
     <li>Multiple Ropes
         <ul>
-            <li>An agent uses the A* algorithm on a graph created by placing a user-decided number of nodes to navigate to the goal.  I smoothed the look of the agents by navigating to the node that is furthest along the agent's path that is visible</li>
+            <li>The existance of multiple ropes is clearly seen in every video linked below.  In order for the flag to act as a cloth, multiple ropes must be present</li>
         </ul>
     </li>
     <li>Cloth Simulation
         <ul>
-            <li>The user starts each simulation by clicking the mouse to place an obstacle.</li>
-            <li>The user can make the latest obsticle added larger or smaller by pressing the right or left arrow key</li>
-            <li>Once the user is done adding obsticles, they press the space bar, and can click the mouse anywhere to add agents. If they click on an obsticle the agent will not be added</li>
-            <li>Once the user is done adding agents, they press the space bar, and can click anywhere to set the goal position for all agents</li>
-            <li>The user then presses the space bar again to run the simulation and can press r at anytime to restart</li>
+            <li>I created the cloth by creating 40 springs, each with 20 nodes.  This creates a grid of nodes which has dimension 20X40.</li>
+            <li>I obviously connected nodes which were directly above and below itself with springs, and I also connect nodes directly to the right or left with springs.  This means that nodes in the middle of the grid are connected to four other nodes, nodes on the edge are connected to three other nodes, and corner nodes are connected to two other nodes.</li>
         </ul>
     </li>
     <li>3D Simulation
         <ul>
-            <li>At any time during the simulation, the user can click the mouse and change the goal position.  The agents will recalculate the path and navigate to the new goal.</li>
+            <li>I used the CAMERA class created by Liam Tyler</li>
         </ul>
     </li>
     <li>Air drag for cloth
@@ -61,10 +58,19 @@
 <a href="https://docs.google.com/document/d/1-T3_QHjcd-vrTCILLeDnI54gNtEIjI_CQZjrjP778r0/edit?usp=sharing">Simulation Code</a><br>
 <a href="https://docs.google.com/document/d/1u6X72_5875AAzFQhQdiJipDs6fVE9rt7C1UP63g4BAI/edit?usp=sharing">Cloth Class</a><br>
 <a href="https://docs.google.com/document/d/13FU8YYHsLqSJhsyhIHSn7EIan5ZhY-9FHRCuskeBP14/edit?usp=sharing">Cloth Node Class</a><br>
+<a href="https://docs.google.com/document/d/1sPfUbBEqM11u5Nc4lAm24cYdd840d0zYmvJbCRv91dM/edit?usp=sharing">Camera Class</a><br>
 
 <h2>Tools and Libraries</h2>
-<p>I did not use many external tools and libraries outside of Processing to display the behavior of my simulations.</p>
+<p>I used the camera class created by Liam Tyler to move the camera around the 3D environment, as well as Processing to display the behavior of my simulations.</p>
 <h2>Difficulties</h2>
+<p>The main difficulty I had was tuning the parameters, such as spring constant, damping constant, and timestep in order to get compelling looking results.
+    The problem was that I would need to increase the spring constant so the cloth wouldn't look so stretchy, but when that constant grows too large, 
+    the closth has a tendency to spontaneously explode.  I would then try to decrease the timestep, but that made the simulation run really slow.  
+    Eventually I found a combination of parameters that I found pleasing.  Another difficulty I found was when I was adding flag tearing, the flag
+    really wanted to explode when it ripped.  The problem was occuring in the part of the code where I was calculating air resistnace.  I was still calculating the air 
+    resistnace for triangles that were supposed to be ripped, so nodes were getting incorrect forces applied to them.  I solved this by not doing air resistnace
+    calculations on triangles that were ripped.
+</p>
 
 
 <h2>Video</h2>
